@@ -1,0 +1,27 @@
+作者：火地晋 - 王胜国
+博客：http://yelaiju.cnblogs.com
+
+程序功能，可以自由设定采用的并发线程数，及每个线程的工作量来评测数据访问组件的性能状况。
+已经实现的测试组件代码有：ClownFish、CYQ、EF、Moon、MySoft、NHibernate、PDF、XCode
+对于增删改查的测试均有实现。
+
+测试代码完全采用接口规范编写，所以有兴趣的朋友，可以轻易的编写另外的组件测试代码。
+只要继承并实现ITest接口，之后在组件选择下拉框中添加类名即可。
+
+如果考虑的是ORM的性能，那么就纯使用ORM的方式来操作，不考虑拼SQL的情况。
+
+
+数据分析【未实现】
+将测试的数据保存
+保存线程数、查询次数、最大值、最小值、平均值
+
+各组件地址
+ClownFish：http://www.cnblogs.com/fish-li/【不开源】仅此一个是非ORM的。
+CYQ:http://www.cnblogs.com/cyq1162/【逐版本开源】
+EF: https://entityframework.codeplex.com/【开源】
+Moon：http://www.cnblogs.com/humble/【不开源】
+MySoft：http://www.cnblogs.com/maoyong/archive/2010/03/01/1675730.html【逐版本开源】
+NHibernate：http://nhforge.org/【开源】
+PDF：http://home.cnblogs.com/u/bluedoctor/【开源】
+XCode：http://xcode.codeplex.com/【开源】
+

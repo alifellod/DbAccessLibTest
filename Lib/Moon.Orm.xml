@@ -1,0 +1,2609 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>Moon.Orm</name>
+  </assembly>
+  <members>
+    <member name="T:Moon.Orm.ACCESS">
+      <summary>
+            ACCESS引擎
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.DB">
+      <summary>
+            所有数据库操作的类无论MYSQL还是MSSQL都继承于此.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.DB.ExecuteOneSql(System.String)">
+      <summary>
+            执行一条sql语句(无论多长)
+            </summary>
+      <param name="cmdString">sql语句</param>
+      <returns>受影响的数据行</returns>
+    </member>
+    <member name="M:Moon.Orm.DB.ExecuteProc(System.String,System.Collections.Generic.Queue{System.Data.Common.DbParameter})">
+      <summary>
+            执行存储过程
+            </summary>
+      <param name="procName">
+      </param>
+      <param name="superSqlParameters">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetDataSet(System.String)">
+      <summary>
+            GetDataSet
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetDataTable(System.String)">
+      <summary>
+            GetDataTable
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetDataView(System.String,System.String,System.String,System.Data.DataViewRowState)">
+      <summary>
+            GetDataView
+            </summary>
+      <param name="cmdString">
+      </param>
+      <param name="RowFilter">
+      </param>
+      <param name="Sort">
+      </param>
+      <param name="RowState">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetDbCommand(System.String)">
+      <summary>
+            GetDbCommand
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetDbConnection">
+      <summary>
+            GetDbConnection
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetOpenDbConnection">
+      <summary>
+            获取一个打开状态的连接
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetDbDataReader(System.String)">
+      <summary>
+            GetDbDataReader
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetDbDataReader(System.String,System.Data.Common.DbConnection)">
+      <summary>
+            GetDbDataReader
+            </summary>
+      <param name="cmdString">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetFirstData(System.String)">
+      <summary>
+            获取第一数据
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetFirstData(System.String,System.Data.Common.DbConnection)">
+      <summary>
+            获取第一数据
+            </summary>
+      <param name="cmdString">sql</param>
+      <param name="conn">连接,常常用于事务</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.ToSafeString(System.String)">
+      <summary>
+            在必要查询时需要安全转换
+            </summary>
+      <param name="str">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetProcDbCommand(System.String)">
+      <summary>
+            获取存储过程形式的DbCommand
+            </summary>
+      <param name="procName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetProcDbCommand(System.String,System.Data.Common.DbConnection)">
+      <summary>
+            获取存储过程形式的DbCommand
+            </summary>
+      <param name="procName">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.ExecuteSqlByParameters(System.Collections.Generic.Dictionary{System.String,System.Object},System.String,System.Boolean,System.Int32)">
+      <summary>
+            通过参数化执行一条sql语句
+            </summary>
+      <param name="parameters">
+      </param>
+      <param name="sql">
+      </param>
+      <param name="startTransaction">
+      </param>
+      <param name="type">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.ExecuteSqlByParameters(System.Collections.Generic.Dictionary{System.String,System.Object},System.String,System.Data.Common.DbConnection,System.Int32)">
+      <summary>
+            通过参数化执行一条sql语句
+            </summary>
+      <param name="parameters">
+      </param>
+      <param name="sql">
+      </param>
+      <param name="conn">
+      </param>
+      <param name="type">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetWebPagedListDesc``1(Moon.Orm.Field,Moon.Orm.Field)">
+      <summary>
+            获取网页形式的分页(在web开发中方能使用)
+            </summary>
+      <param name="primaryKey">主键字段</param>
+      <param name="condition">查询的条件</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetWebPagedListDesc``1(Moon.Orm.Field,Moon.Orm.Field,System.Data.Common.DbConnection)">
+      <summary>
+            获取网页形式的分页(在web开发中方能使用)
+            </summary>
+      <param name="primaryKey">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetWebPagedListDesc``1(Moon.Orm.Field,Moon.Orm.Field,System.Int64)">
+      <summary>
+            获取网页形式的分页(在web开发中方能使用)
+            </summary>
+      <param name="primaryKey">主键字段</param>
+      <param name="condition">查询的条件</param>
+      <param name="sumCount">总条数</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetWebPagedListDesc``1(Moon.Orm.Field,Moon.Orm.Field,System.Int64,System.Data.Common.DbConnection)">
+      <summary>
+            获取网页形式的分页(在web开发中方能使用)
+            </summary>
+      <param name="primaryKey">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="sumCount">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetPagedListDesc``1(System.Int32,System.Int32,Moon.Orm.Field,Moon.Orm.Field)">
+      <summary>
+            获取分页列表默认倒叙
+            </summary>
+      <param name="startIndex">
+      </param>
+      <param name="endIndex">
+      </param>
+      <param name="primaryKey">
+      </param>
+      <param name="onlyMark">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetPagedListDesc``1(System.Int32,System.Int32,Moon.Orm.Field,Moon.Orm.Field,System.Data.Common.DbConnection)">
+      <summary>
+            获取分页列表默认倒叙
+            </summary>
+      <param name="startIndex">
+      </param>
+      <param name="endIndex">
+      </param>
+      <param name="primaryKey">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetPagedListDesc``1(System.Int32,System.Int32,Moon.Orm.Field,System.String)">
+      <summary>
+            获取分页列表默认倒叙
+            </summary>
+      <param name="startIndex">startIndex</param>
+      <param name="endIndex">结束index</param>
+      <param name="primaryKey">主键</param>
+      <param name="sqlsForTempTable">通过sql查询所得的零时表</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DB.GetPagedListDesc``1(System.Int32,System.Int32,Moon.Orm.Field,System.String,System.Data.Common.DbConnection)">
+      <summary>
+            获取分页列表默认倒叙
+            </summary>
+      <param name="startIndex">
+      </param>
+      <param name="endIndex">
+      </param>
+      <param name="primaryKey">
+      </param>
+      <param name="sqlsForTempTable">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Moon.Orm.DB.ConnectionString">
+      <summary>
+            当前的连接字符串
+            </summary>
+    </member>
+    <member name="P:Moon.Orm.DB.DBType">
+      <summary>
+            数据库类型
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.ACCESS.#ctor(System.String)">
+      <summary>
+            构造函数
+            </summary>
+      <param name="connectionString">连接字符串</param>
+    </member>
+    <member name="M:Moon.Orm.ACCESS.ToSafeString(System.String)">
+      <summary>
+            转化为安全的字符串
+            </summary>
+      <param name="str">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.ACCESS.ToSimplieSafe(System.String)">
+      <summary>
+            转化为安全的字符串
+            </summary>
+      <param name="str">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Moon.Orm.AutoEntitiesHelper">
+      <summary>
+            Description of AutoEntitiesHelper.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.AutoEntitiesHelper.GenerateEntityCode(System.String,Moon.Orm.DB,System.String)">
+      <summary>
+            获取此sql要得到数据的[代码]
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <param name="className">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.AutoEntitiesHelper.CompileCodeToEntityAssembly(System.String,Moon.Orm.DB,System.String)">
+      <summary>
+            把代码编译为程序集
+            </summary>
+      <param name="sql">查询所用的sql语句</param>
+      <param name="db">数据获取引擎</param>
+      <param name="className">使用的类名</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.AutoEntitiesHelper.CompileToResults(System.String,System.String[],System.String)">
+      <summary>
+            将代码编译为自己所要的类型
+            </summary>
+      <param name="code">代码</param>
+      <param name="strArray">引用的程序集名</param>
+      <param name="className">所用的类名</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Moon.Orm.Pair`2">
+      <summary>
+            用于装两个数的情况
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.JoinData`2">
+      <summary>
+            表示一行连接查询的结果
+            </summary>
+    </member>
+    <member name="P:Moon.Orm.JoinData`2.Left">
+      <summary>
+            左表的值
+            </summary>
+    </member>
+    <member name="P:Moon.Orm.JoinData`2.Right">
+      <summary>
+            右表的值
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.DBFactory">
+      <summary>
+             数据库操作工厂
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.DBFactory.DefaultDB">
+      <summary>
+            系统默认数据库操作db引擎对象,建议大家好好研究这个对象
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntity``1(System.String)">
+      <summary>
+            通过sql查询实体,DB默认
+            <example>DBFactory.GetEntity<code>UserSet</code>&gt;("select * from UserSet where ID=1");</example></summary>
+      <param name="sql">查询该实体的语句</param>
+      <returns>该实体</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntity``1(System.String,System.Data.Common.DbTransaction)">
+      <summary>
+            通过事务获取实体
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntity``1(Moon.Orm.Field)">
+      <summary>
+            根据语法糖功能查询实体
+            </summary>
+      <param name="condition">条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))} }</param>
+      <returns>查询实体</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntity``1(Moon.Orm.Field,System.Data.Common.DbTransaction)">
+      <summary>
+            通过事务获取实体
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntity``1(Moon.Orm.Field,Moon.Orm.Field)">
+      <summary>
+            根据语法糖功能查询实体(指定实体所需要的查询字段)
+            </summary>
+      <param name="selectFields">目标字段(如:UField+UserSetTable.Name)</param>
+      <param name="condition">查询条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))} }</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntity``1(Moon.Orm.Field,Moon.Orm.Field,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义事务获取实体
+            </summary>
+      <param name="selectFields">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.DeleteWhen(Moon.Orm.Field)">
+      <summary>
+            当满足什么条件时,删除数据
+            </summary>
+      <param name="condition">条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))} }</param>
+      <returns>被删除的条数</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.DeleteWhen(Moon.Orm.Field,System.Data.Common.DbConnection)">
+      <summary>
+            自定义连接删除对象
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.DeleteWhen(Moon.Orm.Field,System.Data.Common.DbTransaction)">
+      <summary>
+            事务删除对象
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.DeleteWhen(Moon.Orm.Field,Moon.Orm.DB)">
+      <summary>
+            当满足什么条件时,删除数据,DB默认
+            </summary>
+      <param name="condition">条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))} }</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.DeleteWhen(Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbConnection)">
+      <summary>
+            自定义连接删除对象
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.DeleteWhen(Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            事务删除对象
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.DeleteWhen(System.String,Moon.Orm.DB)">
+      <summary>
+            通过sql,删除数据,DB自定义
+            </summary>
+      <param name="sql">sql语句</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>删除条数</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.DeleteWhen(System.String,Moon.Orm.DB,System.Data.Common.DbConnection)">
+      <summary>
+            自定义连接删除对象
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.DeleteWhen(System.String,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            自事务定义连接删除对象
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntity``1(Moon.Orm.Field,Moon.Orm.Field,Moon.Orm.DB)">
+      <summary>
+            根据语法糖功能查询实体(指定实体所需要的查询字段),DB可以自定义
+            </summary>
+      <param name="selectFields">目标字段(如:UserSetTable.ID+UserSetTable.Name)</param>
+      <param name="condition">查询条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))} </param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>实体</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntity``1(Moon.Orm.Field,Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            事务获取对象
+            </summary>
+      <param name="selectFields">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntity``1(System.String,Moon.Orm.DB)">
+      <summary>
+            通过sql获取指定实体
+            </summary>
+      <param name="sql">sql语句</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>实体</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntity``1(System.String,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义事务获取对象
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(System.String)">
+      <summary>
+            通过sql获取指定实体集
+            </summary>
+      <param name="sql">sql语句</param>
+      <returns>实体集</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(System.String,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义事务获取对象集
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(System.String,Moon.Orm.DB)">
+      <summary>
+            通过sql获取指定实体集
+            </summary>
+      <param name="sql">sql语句</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>实体集</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntitiesH``1(Moon.Orm.Field,System.String)">
+      <summary>
+            高效获取实体的方式
+            </summary>
+      <param name="condition">查询条件</param>
+      <param name="entityDll">实体所在的程序集(如demo.exe)</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntitiesH``1(Moon.Orm.Field,System.String,Moon.Orm.DB)">
+      <summary>
+            高效获取实体的方式
+            </summary>
+      <param name="condition">查询条件</param>
+      <param name="entityDll">实体所在的程序集(如demo.exe)</param>
+      <param name="db">db引擎</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntitiesH``1(System.String,System.String)">
+      <summary>
+            通过sql高效查询实体
+            </summary>
+      <param name="sql">sql语句</param>
+      <param name="entityDll">实体类所在的程序集</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntitiesH``1(System.String,System.String,Moon.Orm.DB)">
+      <summary>
+            自定义db引擎,通过sql高效查询实体
+            </summary>
+      <param name="sql">sql语句</param>
+      <param name="entityDll">实体类所在的程序集</param>
+      <param name="db">db引擎</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetIntelligentEntity(System.String,Moon.Orm.DB)">
+      <summary>
+            不用定义实体,获取实体对象,最后通过ret["Age"].To＜Int＞()得值； 注意字段可大可小写.
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetIntelligentEntity(System.String)">
+      <summary>
+            不用定义实体,获取实体对象,最后通过ret["Age"].To＜Int＞()得值；注意字段可大可小写
+            </summary>
+      <param name="sql">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetIntelligentEntities(System.String,Moon.Orm.DB)">
+      <summary>
+            不用定义实体,获取实体对象集合,最后通过ret["Age"].To＜Int＞()得值；注意字段可大可小写
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetIntelligentEntities(System.String)">
+      <summary>
+            不用定义实体,获取实体对象集合,最后通过ret["Age"].To＜Int＞()得值；注意字段可大可小写
+            </summary>
+      <param name="sql">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(System.String,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义事务获取对象集
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(Moon.Orm.Field,Moon.Orm.Field,Moon.Orm.DB)">
+      <summary>
+            获取指定字段的实体集
+            </summary>
+      <param name="selectFields">目标字段(如:UserSetTable.ID+UserSetTable.Name)</param>
+      <param name="condition">条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))} </param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>实体集</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(Moon.Orm.Field,Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义事务获取对象集
+            </summary>
+      <param name="selectFields">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(Moon.Orm.Field,Moon.Orm.DB)">
+      <summary>
+            通过语法糖功能获取指定实体集
+            </summary>
+      <param name="condition">条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))} </param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>实体集</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义事务获取对象集
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(Moon.Orm.Field)">
+      <summary>
+            通过语法糖功能获取指定实体集,db默认
+            </summary>
+      <param name="condition">查询条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))} </param>
+      <returns>实体集</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(Moon.Orm.Field,System.Data.Common.DbTransaction)">
+      <summary>
+            获取实体集,事务
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(Moon.Orm.Field,Moon.Orm.Field)">
+      <summary>
+            通过语法糖功能获取指定实体集,目标字段可设置
+            </summary>
+      <param name="selectFields">目标字段</param>
+      <param name="condition">条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))} </param>
+      <returns>实体集</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetEntities``1(Moon.Orm.Field,Moon.Orm.Field,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义事务获取对象集
+            </summary>
+      <param name="selectFields">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Add(Moon.Orm.EntityBase)">
+      <summary>
+            添加实体
+            </summary>
+      <param name="entity">实体对象</param>
+      <returns>添加后的主键值</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Add(Moon.Orm.EntityBase,System.Data.Common.DbTransaction)">
+      <summary>
+            添加实体,自定义事务
+            </summary>
+      <param name="entity">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.ThisFieldIsDBNull(Moon.Orm.Field,Moon.Orm.Field)">
+      <summary>
+            该字段是否为空
+            </summary>
+      <param name="field">目标字段</param>
+      <param name="condition">查询条件</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.ThisFieldIsDBNull(Moon.Orm.Field,Moon.Orm.Field,System.Data.Common.DbTransaction)">
+      <summary>
+            该字段是否为空
+            </summary>
+      <param name="field">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.ThisFieldIsDBNull(Moon.Orm.Field,Moon.Orm.Field,Moon.Orm.DB)">
+      <summary>
+            该字段是否为空
+            </summary>
+      <param name="field">目标字段</param>
+      <param name="condition">查询条件</param>
+      <param name="db">db引擎</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.ThisFieldIsDBNull(Moon.Orm.Field,Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            该字段是否为空,事务功能
+            </summary>
+      <param name="field">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Add(Moon.Orm.EntityBase,Moon.Orm.DB)">
+      <summary>
+            添加实体
+            </summary>
+      <param name="entity">实体对象</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Add(Moon.Orm.EntityBase,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            添加实体,自定义事务
+            </summary>
+      <param name="entity">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Update(Moon.Orm.EntityBase,Moon.Orm.DB)">
+      <summary>
+            更新实体
+            </summary>
+      <param name="entity">实体对象</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Update(Moon.Orm.EntityBase,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            更新实体对象,事务功能
+            </summary>
+      <param name="entity">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Update(Moon.Orm.EntityBase)">
+      <summary>
+            更新实体对象
+            </summary>
+      <param name="entity">实体对象</param>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Update(Moon.Orm.EntityBase,System.Data.Common.DbTransaction)">
+      <summary>
+            更新实体对象,事务功能
+            </summary>
+      <param name="entity">
+      </param>
+      <param name="tran">
+      </param>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetOneField``1(Moon.Orm.Field,Moon.Orm.Field)">
+      <summary>
+            通过语法糖功能获取指定字段
+            </summary>
+      <param name="theField">所要的字段</param>
+      <param name="condition">条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))} </param>
+      <returns>字段值</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetOneField``1(Moon.Orm.Field,Moon.Orm.Field,System.Data.Common.DbTransaction)">
+      <summary>
+            通过语法糖功能获取指定字段,自定义事务
+            </summary>
+      <param name="theField">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetOneField``1(Moon.Orm.Field,System.String)">
+      <summary>
+            通过GetOnlyMark()方法获取指定字段
+            </summary>
+      <param name="theField">
+      </param>
+      <param name="onlyMarkString">这个就是ID=3)这种形式的字符串</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetOneField``1(Moon.Orm.Field,System.String,System.Data.Common.DbTransaction)">
+      <summary>
+             获取的单独字段,事务功能
+            </summary>
+      <param name="theField">
+      </param>
+      <param name="onlyMarkString">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetOneField``1(System.String,Moon.Orm.DB)">
+      <summary>
+            通过sql获取指定字段
+            </summary>
+      <param name="sql">sql语句</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetOneField``1(System.String,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            获取的单独字段,事务功能
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(Moon.Orm.Field)">
+      <summary>
+            是否存在指定数据
+            </summary>
+      <param name="condition">条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))} </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(Moon.Orm.Field,System.Data.Common.DbConnection)">
+      <summary>
+            自定义连接
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(Moon.Orm.Field,System.Data.Common.DbTransaction)">
+      <summary>
+            带事务功能
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(Moon.Orm.Field,Moon.Orm.DB)">
+      <summary>
+            根据语法糖功能查询数据是否存在,是否存在指定数据
+            </summary>
+      <param name="condition">查询条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))}}</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbConnection)">
+      <summary>
+            自定义连接
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            带有事务功能
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(System.String,Moon.Orm.DB)">
+      <summary>
+            通过自定义sql语句(注意用select count(*) from....)查询是否存在所有数据,可db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(System.String,Moon.Orm.DB,System.Data.Common.DbConnection)">
+      <summary>
+            自定义连接
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(System.String,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            事务功能加入
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(System.String)">
+      <summary>
+            通过自定义sql语句(注意用select count(*) from....)查询是否存在所有数据,系统默认DB
+            </summary>
+      <param name="sql">sql语句</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(System.String,System.Data.Common.DbConnection)">
+      <summary>
+            自定义连接
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.Exists(System.String,System.Data.Common.DbTransaction)">
+      <summary>
+            事务功能加入
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetCount(System.String,Moon.Orm.DB)">
+      <summary>
+            通过自定义sql获取指定数据的个数,可db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))
+            </summary>
+      <param name="sql">sql语句</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>Int64格式的数据个数</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetInt32Count(System.String,Moon.Orm.DB)">
+      <summary>
+            获取Int32形式的数据个数
+            </summary>
+      <param name="sql">sql语句</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>Int32形式的数据个数</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetInt32Count(System.String,Moon.Orm.DB,System.Data.Common.DbConnection)">
+      <summary>
+            GetInt32Count
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetInt32Count(System.String,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            GetInt32Count,带有事务功能
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetInt32Count(System.String)">
+      <summary>
+            采用默认db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))查询获取Int32形式的数据个数
+            </summary>
+      <param name="sql">sql语句</param>
+      <returns>Int32形式的数据个数</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetInt32Count(System.String,System.Data.Common.DbTransaction)">
+      <summary>
+            GetInt32Count,带有事务功能
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetInt32Count(Moon.Orm.Field,Moon.Orm.DB)">
+      <summary>
+            采用db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))查询获取Int32形式的数据个数
+            </summary>
+      <param name="condition">查询条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))}}</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>Int32形式的数据个数</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetInt32Count(Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbConnection)">
+      <summary>
+            自定义连接获取数据
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetInt32Count(Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义事务获取数据
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetInt32Count(Moon.Orm.Field)">
+      <summary>
+            采用默认db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))查询获取Int32形式的数据个数
+            </summary>
+      <param name="condition">查询条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))}}</param>
+      <returns>Int32形式的数据个数</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetInt32Count(Moon.Orm.Field,System.Data.Common.DbConnection)">
+      <summary>
+            自定义连接获取数据
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetInt32Count(Moon.Orm.Field,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义事务获取数据
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetCount(System.String)">
+      <summary>
+             通过自定义sql获取指定数据的个数,系统默认DB
+            </summary>
+      <param name="sql">查询语句</param>
+      <returns>Int64格式的数据个数</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetCount(System.String,System.Data.Common.DbConnection)">
+      <summary>
+            自定义连接获取数据
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetCount(System.String,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义事务获取数据
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetCount(Moon.Orm.Field,Moon.Orm.DB)">
+      <summary>
+            通过语法糖功能查询个数,db可以自定义
+            </summary>
+      <param name="condition">条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))}}</param>
+      <param name="db">db引擎(可以MSSQL,MYSQL,PostgreSql,SQLITE等,如 new MSSQL("连接字符串"))</param>
+      <returns>Int64格式的数据个数</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetCount(Moon.Orm.Field)">
+      <summary>
+            获取数据,通过制定条件
+            </summary>
+      <param name="condition">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetCount(Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbConnection)">
+      <summary>
+            自定义连接获取数据,自定义连接
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="conn">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetCount(Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义连接获取数据,自定义事务
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetCount(Moon.Orm.Field,System.Data.Common.DbConnection)">
+      <summary>
+            通过语法糖功能查询个数,系统默认DB
+            </summary>
+      <param name="condition">条件,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))}}</param>
+      <returns>Int64格式的数据个数</returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetCount(Moon.Orm.Field,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义连接获取数据,自定义事务
+            </summary>
+      <param name="condition">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetOneField``1(System.String)">
+      <summary>
+            根据自定义sql查询一张表中单个字段的值,DB系统默认
+            </summary>
+      <param name="sql">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetOneField``1(System.String,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义连接获取数据,自定义事务
+            </summary>
+      <param name="sql">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetOneField``1(Moon.Orm.Field,Moon.Orm.Field,Moon.Orm.DB)">
+      <summary>
+            根据自定义语法糖功能查询一张表中单个字段的值
+            </summary>
+      <param name="theField">目标字段</param>
+      <param name="condition">查询条件 ,如{ UserSet.Age.Equal(9).And(UserSet.Name.Equal("秦时明月"))}}</param>
+      <param name="db">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetOneField``1(Moon.Orm.Field,Moon.Orm.Field,Moon.Orm.DB,System.Data.Common.DbTransaction)">
+      <summary>
+            自定义连接获取数据,自定义事务
+            </summary>
+      <param name="theField">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="db">
+      </param>
+      <param name="tran">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.ExecuteProToDataSet(System.Collections.Generic.List{System.Data.Common.DbParameter},System.String)">
+      <summary>
+            执行存储过程返回dataset
+            </summary>
+      <param name="parameters">
+      </param>
+      <param name="procName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.ExecuteProWithNonQuery(System.Collections.Generic.List{System.Data.Common.DbParameter},System.String)">
+      <summary>
+            执行存储过程返回受影响的行数
+            </summary>
+      <param name="parameters">
+      </param>
+      <param name="procName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.ExecuteProToList``1(System.Collections.Generic.List{System.Data.Common.DbParameter},System.String)">
+      <summary>
+            执行存储过程返回list
+            </summary>
+      <param name="parameters">
+      </param>
+      <param name="procName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetAutoEntities(System.String,Moon.Orm.DB,System.String)">
+      <summary>
+            获取动态实体
+            </summary>
+      <param name="sql">sql语句</param>
+      <param name="db">db引擎</param>
+      <param name="className">你给你的实体定义一个名字</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.DBFactory.GetAutoEntities(System.String,System.String)">
+      <summary>
+            获取动态实体
+            </summary>
+      <param name="sql">sql语句</param>
+      <param name="className">你给你的实体定义一个名字</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Moon.Orm.DBFactory.CurrentSql">
+      <summary>
+            调试用的数据,注意非线程安全!
+            <example>通过监视器查看:DBFactory.CurrentSql</example></summary>
+    </member>
+    <member name="T:Moon.Orm.DatabasesType">
+      <summary>
+            数据库类型
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.DatabasesType.MSSQL">
+      <summary>
+            sqlserver
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.DatabasesType.ACCESS">
+      <summary>
+            access
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.DatabasesType.EXCEL">
+      <summary>
+            excel
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.DatabasesType.MYSQL">
+      <summary>
+            mysql
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.DatabasesType.ORACLE">
+      <summary>
+            oracle
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.DatabasesType.SQLITE">
+      <summary>
+            sqlite
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.DatabasesType.PostgreSql">
+      <summary>
+            PostgreSQL
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.EntityBase">
+      <summary>
+            Description of MSSQLEntity.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.#ctor">
+      <summary>
+            构造函数
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.EntityBase.IsSystemSetPrimaryKey">
+      <summary>
+            系统设定主键吗?
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.GetIsSystemSetPrimaryKey">
+      <summary>
+            是否系统自动生成自增主键
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.SetIsSystemSetPrimaryKey(System.Boolean)">
+      <summary>
+            是否系统自动生成自增主键
+            </summary>
+      <param name="value">
+      </param>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.StartTransaction(System.Boolean)">
+      <summary>
+            启动事务
+            </summary>
+      <param name="start">
+      </param>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.IsStartTransaction">
+      <summary>
+            是否启动事务
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="F:Moon.Orm.EntityBase.FieldsChangedDictionary">
+      <summary>
+            字段变动记录
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.GetFieldsBeChangedDictionary">
+      <summary>
+            获取字段被改变的实体
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.Set(Moon.Orm.Field,System.Object)">
+      <summary>
+            设置字段的值
+            </summary>
+      <param name="field">最好用生成实体后的的field</param>
+      <param name="value">字段对应值</param>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.Set(System.String,System.Object)">
+      <summary>
+            设置字段的值
+            </summary>
+      <param name="fieldName">字段名字含有[],最好用生成实体后的的field</param>
+      <param name="value">字段对应值</param>
+    </member>
+    <member name="F:Moon.Orm.EntityBase.EntityName">
+      <summary>
+            实体名
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.GetEntityName">
+      <summary>
+            获取此实体的名称
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.SetEntityName(System.String)">
+      <summary>
+            设置实体名称
+            </summary>
+      <param name="name">
+      </param>
+    </member>
+    <member name="F:Moon.Orm.EntityBase.FieldsCount">
+      <summary>
+            当前实体的个数
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.GetFieldsCount">
+      <summary>
+            获取实体字段的个数
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.SetFieldsCount(System.Int32)">
+      <summary>
+            设置当前实体的个数
+            </summary>
+      <param name="count">
+      </param>
+    </member>
+    <member name="F:Moon.Orm.EntityBase.OnlyMark">
+      <summary>
+            当前实体的唯一标记 如: id=3
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.SetOnlyMark(System.Object)">
+      <summary>
+            设置实体的唯一识别标记
+            </summary>
+      <param name="obj">如果此参数为string,那么格式如:[ID]=1 And [Name]='qsmy'</param>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.GetOnlyMark">
+      <summary>
+            获取实体的唯一识别标记
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="F:Moon.Orm.EntityBase._hasTransactionConnection">
+      <summary>
+            还有事务连接
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.EntityBase._transactionConnection">
+      <summary>
+            事务所用连接
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.SetTransactionConnection(System.Data.Common.DbConnection)">
+      <summary>
+            设置事务所用连接
+            </summary>
+      <param name="transactionConnection">
+      </param>
+    </member>
+    <member name="F:Moon.Orm.EntityBase.PrimaryField">
+      <summary>
+            当前实体的主键字段
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.SetPrimaryField(Moon.Orm.Field)">
+      <summary>
+            设置主键
+            </summary>
+      <param name="value">
+      </param>
+    </member>
+    <member name="M:Moon.Orm.EntityBase.GetPrimaryField">
+      <summary>
+            获取主键
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Moon.Orm.EntityBuilder.FieldDbTypeHelper">
+      <summary>
+            mssql的字段帮助类
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.FieldDbTypeHelper.GetSqlServerDbTypeByTypeName(System.String)">
+      <summary>
+            获取sqlserver的字段类型通过其类型名
+            </summary>
+      <param name="typeName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.FieldDbTypeHelper.GetSqliteDbTypeByTypeName(System.String)">
+      <summary>
+      </summary>
+      <param name="typeName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.FieldDbTypeHelper.GetMySqlDbTypeByTypeName(System.String)">
+      <summary>
+            获取mysql的C#数据类型通过类型名
+            </summary>
+      <param name="typeName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.FieldDbTypeHelper.GetPostgreSqlDbTypeByTypeName(System.String)">
+      <summary>
+            获取PostgreSql字段对应的c#类型
+            </summary>
+      <param name="typeName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Moon.Orm.EntityBuilder.DbBase">
+      <summary>
+            数据库基类
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.DbBase.GetIsIdentityPrimaryKey(System.String,System.String)">
+      <summary>
+            判断改主键是否是系统设置的(如自增,自动设置guid)
+            </summary>
+      <param name="primaryKeyName">
+      </param>
+      <param name="tableName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.DbBase.GetPrimaryKeyName(System.String)">
+      <summary>
+            获取该表的主键类型
+            </summary>
+      <param name="tableName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.DbBase.GetYourModel">
+      <summary>
+            获取当前所有的实体层
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.DbBase.GetOneTableStruct(System.String)">
+      <summary>
+            获取此表的结构
+            </summary>
+      <param name="tableName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.DbBase.GenerateOneEntitySet(System.String)">
+      <summary>
+            生成此表对应ORM的Table查询结构
+            </summary>
+      <param name="tableName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.DbBase.GenerateOneEntity(System.String)">
+      <summary>
+            生成此表的对应实体集
+            </summary>
+      <param name="tableName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.DbBase.GetDBsAllTableList(System.String,System.String)">
+      <summary>
+            获取数据库的所有表
+            </summary>
+      <param name="linkString">
+      </param>
+      <param name="databaseName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.DbBase.ToNullAbleString(System.Boolean,System.String)">
+      <summary>
+            根据字段的可空情况决定是否代码生成时加添?
+            </summary>
+      <param name="isAllowNull">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="F:Moon.Orm.EntityBuilder.DbBase.TableNameList">
+      <summary>
+            此数据库中所有的表
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.EntityBuilder.DbBase.ModelName">
+      <summary>
+            Mode的名字
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.EntityBuilder.DbBase.SetHZ">
+      <summary>
+            Table表的后缀
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.DbBase.TableIsCompositePK(System.String)">
+      <summary>
+            此表是否是组合型的组件
+            </summary>
+      <param name="tableName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="F:Moon.Orm.EntityBuilder.DbBase.DbEngine">
+      <summary>
+            数据库引擎
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.DbBase.GetTablesDataTableStruct(System.String)">
+      <summary>
+            获取表的DataTable形似的结构
+            </summary>
+      <param name="tableName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Moon.Orm.EntityBuilder.ModelField">
+      <summary>
+            对model的字段封装
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.EntityBuilder.ModelField.FieldType">
+      <summary>
+            字段类型
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.EntityBuilder.ModelField.IsAllowNull">
+      <summary>
+            是否允许为空
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.EntityBuilder.ModelField.FieldName">
+      <summary>
+            字段名
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.EntityBuilder.MSSQL">
+      <summary>
+            Description of MSSQL.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.MSSQL.#ctor(System.String,System.String)">
+      <summary>
+            构造
+            </summary>
+      <param name="ModelName">
+      </param>
+      <param name="SetHZ">
+      </param>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.MSSQL.GetDBsAllTableList(System.String,System.String)">
+      <summary>
+            获取数据库中所有的表
+            </summary>
+      <param name="linkString">
+      </param>
+      <param name="databaseName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Moon.Orm.EntityBuilder.MYSQL">
+      <summary>
+            Description of PostgreSql.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.MYSQL.GetDBsAllTableList(System.String,System.String)">
+      <summary>
+            获取数据库中所有的表
+            </summary>
+      <param name="linkString">
+      </param>
+      <param name="databaseName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Moon.Orm.EntityBuilder.PostgreSql">
+      <summary>
+            Description of PostgreSql.
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.EntityBuilder.SQLITE">
+      <summary>
+            Description of SqliteDB.
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.EntityBuilder.TableStruct">
+      <summary>
+            表结构
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.EntityBuilder.TableStruct.#ctor">
+      <summary>
+            构造
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.EntityBuilder.TableStruct.TableName">
+      <summary>
+            表名
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.EntityBuilder.TableStruct.AllFields">
+      <summary>
+            所有的字段dic
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.EntityBuilder.TableStruct.PrimaryKey">
+      <summary>
+            主键字段
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.EntityBuilder.TableStruct.IsIdentityPrimaryKey">
+      <summary>
+            是否是自增类型
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.Field">
+      <summary>
+            字段类型
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.Field.#ctor(System.String,System.Boolean,System.String)">
+      <summary>
+            初始化字段
+            </summary>
+      <param name="fieldName">
+      </param>
+      <param name="isPrimaryKey">
+      </param>
+      <param name="tableName">
+      </param>
+    </member>
+    <member name="M:Moon.Orm.Field.op_Addition(Moon.Orm.Field,Moon.Orm.Field)">
+      <summary>
+            字段相加,合并字段(最好指代同一个表的)
+            </summary>
+      <param name="f1">
+      </param>
+      <param name="f2">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.BiggerThan(System.Object)">
+      <summary>
+            大于
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.BiggerThan(System.Object,Moon.Orm.DatabasesType)">
+      <summary>
+            大于,并制定数据库类型
+            </summary>
+      <param name="value">
+      </param>
+      <param name="type">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.StartWithString(System.String)">
+      <summary>
+            以某字符串开始
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.EndWithString(System.String)">
+      <summary>
+            以某字符串结束
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.SmallerThan(System.Object)">
+      <summary>
+            小于
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.SmallerThan(System.Object,Moon.Orm.DatabasesType)">
+      <summary>
+            小于,自已数据库类型
+            </summary>
+      <param name="value">
+      </param>
+      <param name="dbType">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.SmallerThanOrEqual(System.Object)">
+      <summary>
+            小于等于
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.SmallerThanOrEqual(System.Object,Moon.Orm.DatabasesType)">
+      <summary>
+            小于等于
+            </summary>
+      <param name="value">
+      </param>
+      <param name="dbType">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.Equal(System.Object)">
+      <summary>
+            等于(如果为空,相当于如mssql的is null)
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.NotEqual(System.Object)">
+      <summary>
+            不等于
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.Equal(Moon.Orm.Field)">
+      <summary>
+            等于
+            </summary>
+      <param name="condition">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.OrderBy(Moon.Orm.Field,System.Boolean)">
+      <summary>
+            根据某字段升降序
+            </summary>
+      <param name="value">字段</param>
+      <param name="isDESC">是否降序</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.Or(Moon.Orm.Field)">
+      <summary>
+            或者
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.OrWithBrackets(Moon.Orm.Field)">
+      <summary>
+            ad=3 or ( ab=3)
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.NotEqual(Moon.Orm.Field)">
+      <summary>
+            不等于
+            </summary>
+      <param name="condition">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.BiggerThanOrEqual(System.Object)">
+      <summary>
+            大于等于
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.BiggerThanOrEqual(System.Object,Moon.Orm.DatabasesType)">
+      <summary>
+            大于等于
+            </summary>
+      <param name="value">
+      </param>
+      <param name="dbType">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.And(Moon.Orm.Field)">
+      <summary>
+            并且
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.AndWithBrackets(Moon.Orm.Field)">
+      <summary>
+            并且() ad=c and (a=2 or b=4)
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.In(Moon.Orm.Field)">
+      <summary>
+            IN(条件)
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.SelectWhere(Moon.Orm.Field)">
+      <summary>
+            嵌套查询时使用例如:  Table.ID.IN(T2Table.ID.SelectWhere(....))
+            </summary>
+      <param name="onlyMark">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.ContainsString(System.String)">
+      <summary>
+            含有某字符串(自动安全)
+            </summary>
+      <param name="value">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.Between``1(``0,``0)">
+      <summary>
+            值在两者之间(自动安全)
+            </summary>
+      <param name="v1">
+      </param>
+      <param name="v2">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.Field.ToString">
+      <summary>
+            此字段的结构
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Moon.Orm.Field.FieldName">
+      <summary>
+            字段名
+            </summary>
+    </member>
+    <member name="P:Moon.Orm.Field.TableName">
+      <summary>
+            字段所在的表
+            </summary>
+    </member>
+    <member name="P:Moon.Orm.Field.IsPrimaryKey">
+      <summary>
+            是否是主键
+            </summary>
+    </member>
+    <member name="P:Moon.Orm.Field.T_FieldName">
+      <summary>
+            字段名格式如 表名.字段名
+            </summary>
+    </member>
+    <member name="P:Moon.Orm.Field.WhereContent">
+      <summary>
+            字段对应的查询条件
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.FieldAttribute">
+      <summary>
+            FieldAttribute.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.FieldAttribute.#ctor(System.Boolean,System.String)">
+      <summary>
+            构造
+            </summary>
+      <param name="isPrimaryKey">是否是主键</param>
+      <param name="fieldName">字段名</param>
+    </member>
+    <member name="P:Moon.Orm.FieldAttribute.IsPrimaryKey">
+      <summary>
+            是否是主键
+            </summary>
+    </member>
+    <member name="P:Moon.Orm.FieldAttribute.FieldName">
+      <summary>
+            字段名
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.GlobalData">
+      <summary>
+            全局数据
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.GlobalData.LOG_PATH">
+      <summary>
+            当前日志全路径
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.GlobalData.WRITE_LOG_ENABLED">
+      <summary>
+            是否写日志
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.Logger">
+      <summary>
+            Description of Logger.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.Logger.WriteLog(System.String)">
+      <summary>
+            把执行的sql写日志
+            </summary>
+      <param name="sql">
+      </param>
+    </member>
+    <member name="T:Moon.Orm.MoonFastInvoker`1">
+      <summary>
+            Description of MoonFastInvoker.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.MoonFastInvoker`1.GetTFrom(System.Data.IDataRecord)">
+      <summary>
+            get T from IDataRecord
+            </summary>
+      <param name="record">IDataRecord type</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="F:Moon.Orm.MoonFastInvoker`1.SetMethodHandler_DIC">
+      <summary>
+            SetMethodHandler_DIC
+            </summary>
+    </member>
+    <member name="F:Moon.Orm.MoonFastInvoker`1.SetMethodHandler_DIC_LOCK">
+      <summary>
+            SetMethodHandler_DIC_LOCK
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.MoonFastInvoker`1.SetMethodHandler">
+      <summary>
+            SetMethodHandler
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.MSSQL">
+      <summary>
+            Description of MSSQL.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.#ctor(System.String)">
+      <summary>
+            构造函数
+            </summary>
+      <param name="connectionString">
+      </param>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.ToSafeString(System.String)">
+      <summary>
+            安全转换
+            </summary>
+      <param name="str">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetProcDbCommand(System.String)">
+      <summary>
+            GetProcDbCommand
+            </summary>
+      <param name="procName">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetPagedListDesc``1(System.Int32,System.Int32,Moon.Orm.Field,Moon.Orm.Field)">
+      <summary>
+            获取分页列表
+            </summary>
+      <param name="startIndex">
+      </param>
+      <param name="endIndex">
+      </param>
+      <param name="primaryKey">
+      </param>
+      <param name="condition">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetPagedListDesc``1(System.Int32,System.Int32,Moon.Orm.Field,System.String)">
+      <summary>
+            GetPagedListDesc
+            </summary>
+      <param name="startIndex">
+      </param>
+      <param name="endIndex">
+      </param>
+      <param name="primaryKey">
+      </param>
+      <param name="sqlsForTempTable">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetWebPagedListDesc``1(Moon.Orm.Field,Moon.Orm.Field,System.Int64)">
+      <summary>
+            GetWebPagedListDesc
+            </summary>
+      <param name="primaryKey">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="sumcount">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetWebPagedListDesc``1(Moon.Orm.Field,Moon.Orm.Field)">
+      <summary>
+            GetWebPagedListDesc
+            </summary>
+      <param name="primaryKey">主键</param>
+      <param name="condition">查询条件</param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetFirstData(System.String)">
+      <summary>
+            GetFirstData
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.ExecuteSqlByParameters(System.Collections.Generic.Dictionary{System.String,System.Object},System.String,System.Boolean,System.Int32)">
+      <summary>
+            执行一条sql语句通过参数形式
+            </summary>
+      <param name="parameters">Dictionary形式的参数列表</param>
+      <param name="sql">sql语句</param>
+      <param name="startTransaction">是否开启事务</param>
+      <param name="type">执行语句的类型 增删改查 1 2 3 4</param>
+      <returns>增加则返回增加后的主键值,否则是受影响的函数</returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetDbDataReader(System.String)">
+      <summary>
+            GetDbDataReader
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetDbConnection">
+      <summary>
+            GetDbConnection
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetDbCommand(System.String)">
+      <summary>
+            GetDbCommand
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetDataView(System.String,System.String,System.String,System.Data.DataViewRowState)">
+      <summary>
+            GetDataView
+            </summary>
+      <param name="cmdString">
+      </param>
+      <param name="RowFilter">
+      </param>
+      <param name="Sort">
+      </param>
+      <param name="RowState">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetDataTable(System.String)">
+      <summary>
+            GetDataTable
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.GetDataSet(System.String)">
+      <summary>
+            GetDataSet
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.ExecuteProc(System.String,System.Collections.Generic.Queue{System.Data.Common.DbParameter})">
+      <summary>
+            ExecuteProc
+            </summary>
+      <param name="procName">
+      </param>
+      <param name="superSqlParameters">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MSSQL.ExecuteOneSql(System.String)">
+      <summary>
+            ExecuteOneSql
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Moon.Orm.Extensions">
+      <summary>
+            操作扩展类
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.MYSQL">
+      <summary>
+            Description of MYSQL.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.MYSQL.#ctor(System.String)">
+      <summary>
+            构造函数
+            </summary>
+      <param name="connectionString">
+      </param>
+    </member>
+    <member name="M:Moon.Orm.MYSQL.ToSafeString(System.String)">
+      <summary>
+            转化为安全字符串,防止注入式攻击
+            </summary>
+      <param name="str">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MYSQL.GetDbConnection">
+      <summary>
+            获取DbConnection
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MYSQL.GetDataView(System.String,System.String,System.String,System.Data.DataViewRowState)">
+      <summary>
+            获取GetDataView
+            </summary>
+      <param name="cmdString">
+      </param>
+      <param name="RowFilter">
+      </param>
+      <param name="Sort">
+      </param>
+      <param name="RowState">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MYSQL.GetDataTable(System.String)">
+      <summary>
+            GetDataTable
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MYSQL.GetDataSet(System.String)">
+      <summary>
+            GetDataSet
+            </summary>
+      <param name="cmdString">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.MYSQL.GetWebPagedListDesc``1(Moon.Orm.Field,Moon.Orm.Field,System.Int64)">
+      <summary>
+            GetWebPagedListDesc
+            </summary>
+      <param name="primaryKey">
+      </param>
+      <param name="condition">
+      </param>
+      <param name="sumCount">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Moon.Orm.PagedData`1">
+      <summary>
+            分页对象
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.PostgreSql">
+      <summary>
+            Description of PostgreSql.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.PostgreSql.#ctor(System.String)">
+      <summary>
+            默认构造
+            </summary>
+      <param name="connectionString">
+      </param>
+    </member>
+    <member name="M:Moon.Orm.PostgreSql.GetWebPagedListDesc``1(Moon.Orm.Field,Moon.Orm.Field)">
+      <summary>
+            web分页
+            </summary>
+      <param name="primaryKey">
+      </param>
+      <param name="onlyMark">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Moon.Orm.SQLITE">
+      <summary>
+            sqlite的处理类
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.StringComparer.Equals(System.String,System.String)">
+      <summary>
+            判断两个字符串是否相同(不区分大小写)
+            </summary>
+      <param name="x">
+      </param>
+      <param name="y">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.StringComparer.GetHashCode(System.String)">
+      <summary>
+            获取hashcode
+            </summary>
+      <param name="obj">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="T:Moon.Orm.SuperSqlParameter">
+      <summary>
+            Description of SuperSqlParameter.
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.ValueObject">
+      <summary>
+            Description of ValueObject.
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.ValueObject.To``1">
+      <summary>
+            convert
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.ValueObject.ToString">
+      <summary>
+            ToString override
+            </summary>
+      <returns>
+      </returns>
+    </member>
+    <member name="P:Moon.Orm.ValueObject.Value">
+      <summary>
+            value
+            </summary>
+    </member>
+    <member name="T:Moon.Orm.WhereChecker">
+      <summary>
+            进行sql注入攻击检查
+            </summary>
+    </member>
+    <member name="M:Moon.Orm.WhereChecker.IsLegal(System.String)">
+      <summary>
+            是否合法
+            </summary>
+      <param name="sql">
+      </param>
+      <returns>
+      </returns>
+    </member>
+    <member name="M:Moon.Orm.WhereChecker.ToSafeString(System.String)">
+      <summary>
+            安全化查询处理
+            </summary>
+      <param name="str">
+      </param>
+      <returns>
+      </returns>
+    </member>
+  </members>
+</doc>

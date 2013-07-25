@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{53367B6F-B4BD-436D-B198-64CE261D75AF}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\ClownFish.dll = Lib\ClownFish.dll
+		Lib\CYQ.Data.dll = Lib\CYQ.Data.dll
+		Lib\EntityFramework.dll = Lib\EntityFramework.dll
+		Lib\FluentNHibernate.dll = Lib\FluentNHibernate.dll
+		Lib\Iesi.Collections.dll = Lib\Iesi.Collections.dll
+		Lib\Moon.Orm.dll = Lib\Moon.Orm.dll
+		Lib\MySoft.Data.dll = Lib\MySoft.Data.dll
+		Lib\NewLife.Core.dll = Lib\NewLife.Core.dll
+		Lib\NHibernate.dll = Lib\NHibernate.dll
+		Lib\PWMIS.Core.dll = Lib\PWMIS.Core.dll
+		Lib\XCode.dll = Lib\XCode.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Note", "Note", "{E3D3E057-AECF-4E1D-AE70-AFA66F063306}"
+	ProjectSection(SolutionItems) = preProject
+		Note\说明.txt = Note\说明.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbAccessLibTest", "DbAccessLibTest\DbAccessLibTest.csproj", "{CB8D326B-B88B-4E03-A0E1-F8D6CFA41516}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB8D326B-B88B-4E03-A0E1-F8D6CFA41516}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CB8D326B-B88B-4E03-A0E1-F8D6CFA41516}.Debug|Any CPU.Build.0 = Debug|x86
+		{CB8D326B-B88B-4E03-A0E1-F8D6CFA41516}.Debug|x86.ActiveCfg = Debug|x86
+		{CB8D326B-B88B-4E03-A0E1-F8D6CFA41516}.Debug|x86.Build.0 = Debug|x86
+		{CB8D326B-B88B-4E03-A0E1-F8D6CFA41516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB8D326B-B88B-4E03-A0E1-F8D6CFA41516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB8D326B-B88B-4E03-A0E1-F8D6CFA41516}.Release|x86.ActiveCfg = Release|x86
+		{CB8D326B-B88B-4E03-A0E1-F8D6CFA41516}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
