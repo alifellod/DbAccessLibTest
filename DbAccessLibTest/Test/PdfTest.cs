@@ -15,19 +15,19 @@ namespace DbAccessLibTest.Test
         public bool Insert()
         {
             IDataParameter[] parameters =
-        {
-            new SqlParameter("@Guid",SqlDbType.VarChar,50){Value=Guid.NewGuid().ToString()},
-            new SqlParameter("@Content",SqlDbType.NVarChar,500){Value=string.Empty}
-        };
+            {
+                new SqlParameter("@Guid",SqlDbType.VarChar,50){Value=Guid.NewGuid().ToString()},
+                new SqlParameter("@Content",SqlDbType.NVarChar,500){Value=string.Empty}
+            };
             return (_dbHelper.ExecuteNonQuery(SqlString.Insert, CommandType.Text, parameters) > 0);
         }
         public bool Update(string guid, string content)
         {
             IDataParameter[] parameters =
-        {
-            new SqlParameter("@Guid",SqlDbType.VarChar,50){Value=guid},
-            new SqlParameter("@Content",SqlDbType.NVarChar,500){Value=content}
-        };
+            {
+                new SqlParameter("@Guid",SqlDbType.VarChar,50){Value=guid},
+                new SqlParameter("@Content",SqlDbType.NVarChar,500){Value=content}
+            };
             return (_dbHelper.ExecuteNonQuery(SqlString.Update, CommandType.Text, parameters) > 0);
         }
         public DataTable Select(int count)
@@ -46,9 +46,9 @@ namespace DbAccessLibTest.Test
         public bool Delete(string guid)
         {
             IDataParameter[] parameters =
-        {
-            new SqlParameter("@Guid",SqlDbType.VarChar,50){Value=guid}
-        };
+            {
+                new SqlParameter("@Guid",SqlDbType.VarChar,50){Value=guid}
+            };
             return (_dbHelper.ExecuteNonQuery(SqlString.Delete, CommandType.Text, parameters) > 0);
         }
     }
