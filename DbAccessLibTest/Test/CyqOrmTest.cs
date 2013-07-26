@@ -34,7 +34,7 @@ namespace DbAccessLibTest.Test
             DataTable result;
             using (MAction actiont = new MAction(TableNames.Test))
             {
-                result = actiont.Select(count, "order by Guid").ToDataTable();
+                result = actiont.Select(count, "order by RowId").ToDataTable();
                 //actiont.Select(count, "order by RowId");
             }
             return result;

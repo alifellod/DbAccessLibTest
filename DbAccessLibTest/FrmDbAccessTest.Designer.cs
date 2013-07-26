@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartMain = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.nuWorkThreadCount = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,9 +48,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.rdbTask = new System.Windows.Forms.RadioButton();
             this.rdbThread = new System.Windows.Forms.RadioButton();
             this.rdbThreadPool = new System.Windows.Forms.RadioButton();
             this.ttMain = new System.Windows.Forms.ToolTip(this.components);
+            this.btnRestartForm = new System.Windows.Forms.Button();
             this.cmbTestLib = new System.Windows.Forms.ComboBox();
             this.btnTruncateTable = new System.Windows.Forms.Button();
             this.btnThreadInfo = new System.Windows.Forms.Button();
@@ -59,8 +61,6 @@
             this.nuThreadCountCreated = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.ckbShowThreadStatus = new System.Windows.Forms.CheckBox();
-            this.btnRestartForm = new System.Windows.Forms.Button();
-            this.rdbTask = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.chartMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuWorkThreadCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuExecuteCount)).BeginInit();
@@ -71,32 +71,32 @@
             // 
             // chartMain
             // 
-            chartArea10.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
-            chartArea10.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea10.AxisX.TitleForeColor = System.Drawing.Color.Maroon;
-            chartArea10.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea10.BackColor = System.Drawing.Color.Transparent;
-            chartArea10.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.NarrowHorizontal;
-            chartArea10.Name = "ChartArea1";
-            this.chartMain.ChartAreas.Add(chartArea10);
-            legend10.Name = "Legend1";
-            this.chartMain.Legends.Add(legend10);
+            chartArea2.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
+            chartArea2.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.Maroon;
+            chartArea2.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.NarrowHorizontal;
+            chartArea2.Name = "ChartArea1";
+            this.chartMain.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartMain.Legends.Add(legend2);
             this.chartMain.Location = new System.Drawing.Point(21, 12);
             this.chartMain.Name = "chartMain";
-            series10.ChartArea = "ChartArea1";
-            series10.Label = "#VALX";
-            series10.LabelBackColor = System.Drawing.Color.Gainsboro;
-            series10.LabelBorderColor = System.Drawing.Color.BlanchedAlmond;
-            series10.LabelToolTip = "#VAL{N0}";
-            series10.Legend = "Legend1";
-            series10.LegendText = "平均：#AVG{N0}";
-            series10.LegendToolTip = "平均：#AVG{N0}\\n最高：#MAX{N0}\\n最低：#MIN{N0}";
-            series10.Name = "图例";
-            series10.XValueMember = "Name";
-            series10.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series10.YValueMembers = "TotalElapsed";
-            series10.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int64;
-            this.chartMain.Series.Add(series10);
+            series2.ChartArea = "ChartArea1";
+            series2.Label = "#VALX";
+            series2.LabelBackColor = System.Drawing.Color.Gainsboro;
+            series2.LabelBorderColor = System.Drawing.Color.BlanchedAlmond;
+            series2.LabelToolTip = "#VAL{N0}";
+            series2.Legend = "Legend1";
+            series2.LegendText = "平均：#AVG{N0}";
+            series2.LegendToolTip = "平均：#AVG{N0}\\n最高：#MAX{N0}\\n最低：#MIN{N0}";
+            series2.Name = "图例";
+            series2.XValueMember = "Name";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series2.YValueMembers = "TotalElapsed";
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int64;
+            this.chartMain.Series.Add(series2);
             this.chartMain.Size = new System.Drawing.Size(776, 256);
             this.chartMain.TabIndex = 1;
             this.chartMain.Text = "chart1";
@@ -246,7 +246,7 @@
             this.rtxtMessage.Name = "rtxtMessage";
             this.rtxtMessage.Size = new System.Drawing.Size(778, 124);
             this.rtxtMessage.TabIndex = 7;
-            this.rtxtMessage.Text = "具体测试，可以自行修改数据访问操作代码。\n默认线程的创建间隔延迟是50毫秒。\n";
+            this.rtxtMessage.Text = "具体测试，可以自行修改数据访问操作代码。\n默认线程的创建间隔延迟是50毫秒。\n图表说明：X轴为线程序号、Y轴为耗时。";
             // 
             // btnAnalysis
             // 
@@ -288,6 +288,18 @@
             this.panel2.TabIndex = 9;
             this.ttMain.SetToolTip(this.panel2, "推荐使用Task类型，可以在整崩SQL连接池时，重启程序。\r\n并能在重启前取消已启动线程。其它则不能。");
             // 
+            // rdbTask
+            // 
+            this.rdbTask.AutoSize = true;
+            this.rdbTask.Checked = true;
+            this.rdbTask.Location = new System.Drawing.Point(6, 7);
+            this.rdbTask.Name = "rdbTask";
+            this.rdbTask.Size = new System.Drawing.Size(47, 16);
+            this.rdbTask.TabIndex = 0;
+            this.rdbTask.TabStop = true;
+            this.rdbTask.Text = "Task";
+            this.rdbTask.UseVisualStyleBackColor = true;
+            // 
             // rdbThread
             // 
             this.rdbThread.AutoSize = true;
@@ -307,6 +319,17 @@
             this.rdbThreadPool.TabIndex = 0;
             this.rdbThreadPool.Text = "ThreadPool";
             this.rdbThreadPool.UseVisualStyleBackColor = true;
+            // 
+            // btnRestartForm
+            // 
+            this.btnRestartForm.Location = new System.Drawing.Point(597, 351);
+            this.btnRestartForm.Name = "btnRestartForm";
+            this.btnRestartForm.Size = new System.Drawing.Size(82, 23);
+            this.btnRestartForm.TabIndex = 6;
+            this.btnRestartForm.Text = "重启程序";
+            this.ttMain.SetToolTip(this.btnRestartForm, "除了Task外，其它启动的线程并不能销毁");
+            this.btnRestartForm.UseVisualStyleBackColor = true;
+            this.btnRestartForm.Click += new System.EventHandler(this.btnRestartForm_Click);
             // 
             // cmbTestLib
             // 
@@ -413,29 +436,6 @@
             this.ckbShowThreadStatus.TabIndex = 10;
             this.ckbShowThreadStatus.Text = "显示线程状态";
             this.ckbShowThreadStatus.UseVisualStyleBackColor = true;
-            // 
-            // btnRestartForm
-            // 
-            this.btnRestartForm.Location = new System.Drawing.Point(597, 351);
-            this.btnRestartForm.Name = "btnRestartForm";
-            this.btnRestartForm.Size = new System.Drawing.Size(82, 23);
-            this.btnRestartForm.TabIndex = 6;
-            this.btnRestartForm.Text = "重启程序";
-            this.ttMain.SetToolTip(this.btnRestartForm, "除了Task外，其它启动的线程并不能销毁");
-            this.btnRestartForm.UseVisualStyleBackColor = true;
-            this.btnRestartForm.Click += new System.EventHandler(this.btnRestartForm_Click);
-            // 
-            // rdbTask
-            // 
-            this.rdbTask.AutoSize = true;
-            this.rdbTask.Checked = true;
-            this.rdbTask.Location = new System.Drawing.Point(6, 7);
-            this.rdbTask.Name = "rdbTask";
-            this.rdbTask.Size = new System.Drawing.Size(47, 16);
-            this.rdbTask.TabIndex = 0;
-            this.rdbTask.TabStop = true;
-            this.rdbTask.Text = "Task";
-            this.rdbTask.UseVisualStyleBackColor = true;
             // 
             // FrmDbAccessTest
             // 
