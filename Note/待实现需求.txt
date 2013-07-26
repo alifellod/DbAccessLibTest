@@ -7,3 +7,26 @@ http://blog.zhaojie.me/2009/03/codetimer.html
 @Daan  建议可以加个Dapper
 
 @Gyoung  认为：感觉有些不是纯的ORM，返回的都是DbSet对象。这明显对EF和NH不公平。
+
+@蓝风
+建议加上
+dapper https://github.com/SamSaffron/dapper-dot-net
+petapoco https://github.com/toptensoftware/petapoco
+NPoco(算是新版PetaPoco) https://github.com/schotime/NPoco
+
+@道法自然  
+FluentData也非常不错，强烈推荐试试，使用说明：http://www.iopenworks.com/Products/ProductDetails/DevelopmentGuide?proID=224
+
+@我写的不是代码 是寂寞  
+楼主的测试意义不太大。表结构太简单。在实际项目中，如果遇到表结构非常复杂的情况，ORM的SQL生成将会成为一个大问题。这根表结构有关，还有跟Model的设计有关。根据TPT,TPH,和TPC的不同情况，最后的执行效果差异非常大。ORM生成的SQL将会直接影响执行效率。
+
+还有就是，如何使用好ORM的关键点，是知道如何优化性能，就EF来说，目前的EF5的优化方式有很多种，包括内嵌Model资源文件，Pre-Generate View，Query Warm Up,EF6目前已经到达Beta，性能又有进一步优化。LINQ2Entity的写法也会印象最终的执行效率。
+
+单纯地比较各种ORM的并发CRUD其实并不能体现出性能上的本质差距，而且跟实际项目中遇到的复杂度相差甚远，不能说明问题。学习OMR的好办法之一就是看ORM的source code，可以了解其内部的工作原理，与SQL的生成过程，如何执行缓存，等等。
+
+综合
+待加入组件
+dapper
+NPoco
+elinq
+FluentData

@@ -1,28 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using DbAccessLibTest.Environment;
 using DbAccessLibTest.Model;
 using PWMIS.DataMap.Entity;
-using PWMIS.DataProvider.Adapter;
-using PWMIS.DataProvider.Data;
 
 namespace DbAccessLibTest.Test
 {
     public class PdfOrmTest : ITest
     {
-        private readonly AdoHelper _dbHelper = MyDB.GetDBHelperByConnectionName("pdf");
         public bool Insert()
         {
-            IDataParameter[] parameters =
-        {
-            new SqlParameter("@Guid",SqlDbType.VarChar,50){Value=Guid.NewGuid().ToString()},
-            new SqlParameter("@Content",SqlDbType.NVarChar,500){Value=string.Empty}
-        };
-            return (_dbHelper.ExecuteNonQuery(SqlString.Insert, CommandType.Text, parameters) > 0);
-
+            PdfTestModel model = new PdfTestModel
+            {
+                Guid = Guid.NewGuid().ToString(),
+                EditDate = DateTime.Now
+            };
+            return EntityQuery<PdfTestModel>.Instance.Insert(model) > 0;
         }
         public bool Update(string guid, string content)
         {
@@ -32,9 +26,7 @@ namespace DbAccessLibTest.Test
                 Content = content,
                 EditDate = DateTime.Now
             };
-            OQL q = OQL.From(model).Update(model.Content, model.EditDate).Where(model.Guid).END;
-
-            return EntityQuery<PdfTestModel>.ExecuteOql(q, _dbHelper) > 0;
+            return EntityQuery<PdfTestModel>.Instance.Update(model) > 0;
         }
         public DataTable Select(int count)
         {
@@ -59,8 +51,7 @@ namespace DbAccessLibTest.Test
         public bool Delete(string guid)
         {
             PdfTestModel model = new PdfTestModel { Guid = guid };
-            OQL q = OQL.From(model).Delete().Where(model.Guid).END;
-            return EntityQuery<PdfTestModel>.ExecuteOql(q, _dbHelper) > 0;
+            return EntityQuery<PdfTestModel>.Instance.Delete(model) > 0;
         }
     }
 }

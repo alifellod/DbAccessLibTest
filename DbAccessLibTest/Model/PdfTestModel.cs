@@ -8,7 +8,7 @@ namespace DbAccessLibTest.Model
         public PdfTestModel()
         {
             TableName = "Test";
-            PrimaryKeys.Add("RowId");//主键
+            PrimaryKeys.Add("Guid");//主键
         }
         protected override void SetFieldNames()
         {
