@@ -33,7 +33,7 @@ namespace DbAccessLibTest.Test
         }
         public bool Delete(string guid)
         {
-            return (_dbHelper.ExecuteOneSql(string.Format( SqlString.DeleteFormat,guid)) > 0);
+            return (_dbHelper.ExecuteOneSql(string.Format(SqlString.DeleteFormat, guid)) > 0);
         }
     }
 }

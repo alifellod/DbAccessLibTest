@@ -14,7 +14,6 @@ namespace DbAccessLibTest.Test
         private static readonly ISessionFactory SessionFactory = CreateSessionFactory();
         static NHibernateOrmTest()
         {
-
         }
         private static ISessionFactory CreateSessionFactory()
         {
@@ -25,15 +24,13 @@ namespace DbAccessLibTest.Test
                                 .Database(FluentNHibernate.Cfg.Db.MsSqlConfiguration.MsSql2008
                                 .ConnectionString(s => s.Server(".").Database("Test")
                                     .TrustedConnection()))
-                                .Mappings(m =>m.FluentMappings.Add<TestModelMap>())
+                                .Mappings(m => m.FluentMappings.Add<TestModelMap>())
                                 .BuildSessionFactory();
             }
             catch (Exception ex)
             {
-
                 throw;
             }
-
             return sessionFactory;
         }
         public bool Insert()
@@ -68,7 +65,7 @@ namespace DbAccessLibTest.Test
             IList<TestModel> result;
             using (var session = SessionFactory.OpenSession())
             {
-                result = session.QueryOver<TestModel>().OrderBy(o=>o.Guid).Asc.Take(count).List();
+                result = session.QueryOver<TestModel>().OrderBy(o => o.Guid).Asc.Take(count).List();
             }
             return result;
         }
@@ -86,7 +83,7 @@ namespace DbAccessLibTest.Test
         {
             using (var session = SessionFactory.OpenSession())
             {
-                var model = new TestModel { Guid = guid};
+                var model = new TestModel { Guid = guid };
                 session.Delete(model);
                 session.Flush();
             }

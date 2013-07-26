@@ -17,10 +17,10 @@ namespace DbAccessLibTest.Test
         public bool Insert()
         {
             IDataParameter[] parameters =
-            {
-                new SqlParameter("@Guid",SqlDbType.VarChar,50){Value=Guid.NewGuid().ToString()},
-                new SqlParameter("@Content",SqlDbType.NVarChar,500){Value=string.Empty}
-            };
+        {
+            new SqlParameter("@Guid",SqlDbType.VarChar,50){Value=Guid.NewGuid().ToString()},
+            new SqlParameter("@Content",SqlDbType.NVarChar,500){Value=string.Empty}
+        };
             return (_dbHelper.ExecuteNonQuery(SqlString.Insert, CommandType.Text, parameters) > 0);
 
         }

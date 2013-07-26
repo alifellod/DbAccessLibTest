@@ -528,9 +528,13 @@
         </member>
         <member name="M:CYQ.Data.Orm.OrmBase.SetToAll(System.Object[])">
             <summary>
-            为控件自动赋值。
+            为页面中的所有控件自动赋值，示例：先 SetAutoPrefix("txt","ddl")，再 SetToAll(this)。
             </summary>
             <param name="parentControls">父控件列表（系统自动遍历父控件下的子控件进行赋值）</param>
+            <example><code>
+            action.SetAutoPrefix("txt","ddl");//设置控件的前缀
+            action.SetToAll(this);
+            </code></example>
         </member>
         <member name="P:CYQ.Data.Orm.OrmBase.TableName">
             <summary>
@@ -3171,9 +3175,13 @@
         </member>
         <member name="M:CYQ.Data.MAction.SetToAll(System.Object[])">
             <summary>
-            为控件自动赋值。
+            为页面中的所有控件自动赋值，示例：先 SetAutoPrefix("txt","ddl")，再 SetToAll(this)。
             </summary>
             <param name="parentControls">父控件列表（系统自动遍历父控件下的子控件进行赋值）</param>
+            <example><code>
+            action.SetAutoPrefix("txt","ddl");//设置控件的前缀
+            action.SetToAll(this);
+            </code></example>
         </member>
         <member name="M:CYQ.Data.MAction.SetTo(System.Object,System.Object,System.Boolean)">
             <summary>

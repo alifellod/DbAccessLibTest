@@ -1,0 +1,9 @@
+讨论和建议地址：http://www.cnblogs.com/yelaiju/p/3209506.html
+@风云 建议加入 ELinq https://elinq.codeplex.com/
+@大石头 建议 使用改进版CodeTimer及XCode性能测试
+http://www.cnblogs.com/nnhy/archive/2011/03/11/CodeTimer.html
+http://blog.zhaojie.me/2009/03/codetimer.html
+
+@Daan  建议可以加个Dapper
+
+@Gyoung  认为：感觉有些不是纯的ORM，返回的都是DbSet对象。这明显对EF和NH不公平。
