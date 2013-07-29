@@ -10,6 +10,10 @@ namespace DbAccessLibTest.Test
 {
     public class MySoftOrmTest : ITest
     {
+        public void Init()
+        {
+
+        }
         private static readonly DbSession DBSession = new DbSession(new MySoft.Data.SqlServer9.SqlServer9Provider(System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString));
 
         public bool Insert()

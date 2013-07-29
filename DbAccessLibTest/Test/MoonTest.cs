@@ -9,6 +9,10 @@ namespace DbAccessLibTest.Test
 {
     public class MoonTest : ITest
     {
+        public void Init()
+        {
+
+        }
         private readonly DB _dbHelper = DBFactory.DefaultDB;
         public bool Insert()
         {

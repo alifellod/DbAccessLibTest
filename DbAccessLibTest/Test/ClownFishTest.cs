@@ -9,9 +9,21 @@ namespace DbAccessLibTest.Test
 {
     public class ClownFishTest : DbContextHolderBase, ITest
     {
-        static ClownFishTest()
+        private static bool _isInit;
+        public void Init()
         {
-            DbContext.RegisterDbConnectionInfo("sqlserver", "System.Data.SqlClient", "@", Control.ConnectionStrings);
+            if (!_isInit)
+            {
+                _isInit = true;
+                DbContext.RegisterDbConnectionInfo("sqlserver", "System.Data.SqlClient", "@", Control.ConnectionStrings);
+                //_instance = new ClownFishTest();
+                Instance.Select(1);
+            }
+        }
+        private static ClownFishTest _instance;
+        public static ClownFishTest Instance
+        {
+            get { return _instance ?? (_instance = new ClownFishTest()); }
         }
         public void TruncateTable()
         {
@@ -19,13 +31,14 @@ namespace DbAccessLibTest.Test
         }
         public bool Insert()
         {
-            var parameter = new { Guid = Guid.NewGuid(), Content = string.Empty };
-            return (DbHelper.ExecuteNonQuery(SqlString.Insert, parameter, DbContext, CommandKind.SqlTextWithParams) > 0);
+            //return (DbHelper.ExecuteNonQuery(SqlString.Insert, new { Guid = Guid.NewGuid(), Content = string.Empty }, DbContext, CommandKind.SqlTextWithParams) > 0);
+            return (DbHelper.ExecuteNonQuery(string.Format(SqlString.InsertFormat, Guid.NewGuid(), string.Empty), null, DbContext, CommandKind.SqlTextNoParams) > 0);
         }
         public bool Update(string guid, string content)
         {
-            var parameter = new { Guid = guid, Content = content };
-            return (DbHelper.ExecuteNonQuery(SqlString.Update, parameter, DbContext, CommandKind.SqlTextWithParams) > 0);
+            //return (DbHelper.ExecuteNonQuery(SqlString.Update, new { Guid = guid, Content = content }, DbContext, CommandKind.SqlTextWithParams) > 0);
+            return (DbHelper.ExecuteNonQuery(string.Format(SqlString.UpdateFormat, guid, content), null, DbContext, CommandKind.SqlTextNoParams) > 0);
+
         }
         public DataTable Select(int count)
         {
@@ -42,8 +55,9 @@ namespace DbAccessLibTest.Test
         }
         public bool Delete(string guid)
         {
-            var parameter = new { Guid = guid };
-            return (DbHelper.ExecuteNonQuery(SqlString.Delete, parameter, DbContext, CommandKind.SqlTextWithParams) > 0);
+            //return (DbHelper.ExecuteNonQuery(SqlString.Delete, new { Guid = guid }, DbContext, CommandKind.SqlTextWithParams) > 0);
+            return (DbHelper.ExecuteNonQuery(string.Format(SqlString.DeleteFormat, guid), null, DbContext, CommandKind.SqlTextNoParams) > 0);
+
         }
     }
 }

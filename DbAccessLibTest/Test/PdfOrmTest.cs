@@ -9,6 +9,10 @@ namespace DbAccessLibTest.Test
 {
     public class PdfOrmTest : ITest
     {
+        public void Init()
+        {
+
+        }
         public bool Insert()
         {
             PdfTestModel model = new PdfTestModel

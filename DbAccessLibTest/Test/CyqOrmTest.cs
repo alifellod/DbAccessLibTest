@@ -9,6 +9,11 @@ namespace DbAccessLibTest.Test
 {
     public class CyqOrmTest : ITest
     {
+        public void Init()
+        {
+            
+        }
+
         public bool Insert()
         {
             bool result;

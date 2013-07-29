@@ -11,6 +11,10 @@ namespace DbAccessLibTest.Test
 {
     public class PdfTest : ITest
     {
+        public void Init()
+        {
+
+        }
         private readonly AdoHelper _dbHelper = MyDB.GetDBHelperByConnectionName("pdf");
         public bool Insert()
         {

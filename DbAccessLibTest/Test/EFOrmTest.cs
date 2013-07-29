@@ -10,6 +10,10 @@ namespace DbAccessLibTest.Test
 {
     public class EFOrmTest : ITest
     {
+        public void Init()
+        {
+
+        }
         private readonly EFDbContext _dbContext;
         //private static readonly EFDbContext _dbContext = new EFDbContext("Conn");
         public EFOrmTest()

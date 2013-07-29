@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartMain = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.nuWorkThreadCount = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,12 +55,13 @@
             this.btnRestartForm = new System.Windows.Forms.Button();
             this.cmbTestLib = new System.Windows.Forms.ComboBox();
             this.btnTruncateTable = new System.Windows.Forms.Button();
-            this.btnThreadInfo = new System.Windows.Forms.Button();
+            this.btnClearMessage = new System.Windows.Forms.Button();
             this.nuThreadCountBack = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.nuThreadCountCreated = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.ckbShowThreadStatus = new System.Windows.Forms.CheckBox();
+            this.ckbLibSingleton = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chartMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuWorkThreadCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuExecuteCount)).BeginInit();
@@ -71,32 +72,32 @@
             // 
             // chartMain
             // 
-            chartArea2.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
-            chartArea2.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.Maroon;
-            chartArea2.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.NarrowHorizontal;
-            chartArea2.Name = "ChartArea1";
-            this.chartMain.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartMain.Legends.Add(legend2);
+            chartArea4.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
+            chartArea4.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea4.AxisX.TitleForeColor = System.Drawing.Color.Maroon;
+            chartArea4.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea4.BackColor = System.Drawing.Color.Transparent;
+            chartArea4.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.NarrowHorizontal;
+            chartArea4.Name = "ChartArea1";
+            this.chartMain.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartMain.Legends.Add(legend4);
             this.chartMain.Location = new System.Drawing.Point(21, 12);
             this.chartMain.Name = "chartMain";
-            series2.ChartArea = "ChartArea1";
-            series2.Label = "#VALX";
-            series2.LabelBackColor = System.Drawing.Color.Gainsboro;
-            series2.LabelBorderColor = System.Drawing.Color.BlanchedAlmond;
-            series2.LabelToolTip = "#VAL{N0}";
-            series2.Legend = "Legend1";
-            series2.LegendText = "平均：#AVG{N0}";
-            series2.LegendToolTip = "平均：#AVG{N0}\\n最高：#MAX{N0}\\n最低：#MIN{N0}";
-            series2.Name = "图例";
-            series2.XValueMember = "Name";
-            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series2.YValueMembers = "TotalElapsed";
-            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int64;
-            this.chartMain.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Label = "#VALX";
+            series4.LabelBackColor = System.Drawing.Color.Gainsboro;
+            series4.LabelBorderColor = System.Drawing.Color.BlanchedAlmond;
+            series4.LabelToolTip = "#VAL{N0}";
+            series4.Legend = "Legend1";
+            series4.LegendText = "平均：#AVG{N0}";
+            series4.LegendToolTip = "平均：#AVG{N0}\\n最高：#MAX{N0}\\n最低：#MIN{N0}";
+            series4.Name = "图例";
+            series4.XValueMember = "Name";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series4.YValueMembers = "TotalElapsed";
+            series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int64;
+            this.chartMain.Series.Add(series4);
             this.chartMain.Size = new System.Drawing.Size(776, 256);
             this.chartMain.TabIndex = 1;
             this.chartMain.Text = "chart1";
@@ -246,7 +247,7 @@
             this.rtxtMessage.Name = "rtxtMessage";
             this.rtxtMessage.Size = new System.Drawing.Size(778, 124);
             this.rtxtMessage.TabIndex = 7;
-            this.rtxtMessage.Text = "具体测试，可以自行修改数据访问操作代码。\n默认线程的创建间隔延迟是50毫秒。\n图表说明：X轴为线程序号、Y轴为耗时。";
+            this.rtxtMessage.Text = "具体测试，可以自行修改数据访问操作代码。\n默认线程的创建间隔延迟是50毫秒。\n图表说明：X轴为线程序号、Y轴为耗时。\n";
             // 
             // btnAnalysis
             // 
@@ -360,16 +361,15 @@
             this.btnTruncateTable.UseVisualStyleBackColor = true;
             this.btnTruncateTable.Click += new System.EventHandler(this.btnTruncateTable_Click);
             // 
-            // btnThreadInfo
+            // btnClearMessage
             // 
-            this.btnThreadInfo.Location = new System.Drawing.Point(499, 350);
-            this.btnThreadInfo.Name = "btnThreadInfo";
-            this.btnThreadInfo.Size = new System.Drawing.Size(75, 23);
-            this.btnThreadInfo.TabIndex = 6;
-            this.btnThreadInfo.Text = "线程信息";
-            this.btnThreadInfo.UseVisualStyleBackColor = true;
-            this.btnThreadInfo.Visible = false;
-            this.btnThreadInfo.Click += new System.EventHandler(this.btnThreadInfo_Click);
+            this.btnClearMessage.Location = new System.Drawing.Point(505, 351);
+            this.btnClearMessage.Name = "btnClearMessage";
+            this.btnClearMessage.Size = new System.Drawing.Size(75, 23);
+            this.btnClearMessage.TabIndex = 6;
+            this.btnClearMessage.Text = "清空信息";
+            this.btnClearMessage.UseVisualStyleBackColor = true;
+            this.btnClearMessage.Click += new System.EventHandler(this.btnClearMessage_Click);
             // 
             // nuThreadCountBack
             // 
@@ -437,16 +437,28 @@
             this.ckbShowThreadStatus.Text = "显示线程状态";
             this.ckbShowThreadStatus.UseVisualStyleBackColor = true;
             // 
+            // ckbLibSingleton
+            // 
+            this.ckbLibSingleton.AutoSize = true;
+            this.ckbLibSingleton.Location = new System.Drawing.Point(383, 358);
+            this.ckbLibSingleton.Name = "ckbLibSingleton";
+            this.ckbLibSingleton.Size = new System.Drawing.Size(72, 16);
+            this.ckbLibSingleton.TabIndex = 11;
+            this.ckbLibSingleton.Text = "单例模式";
+            this.ttMain.SetToolTip(this.ckbLibSingleton, "单例模式，测试并不理想，有更好的优化代码，请提交。\r\n目前只实现了ClownFish的单例模式");
+            this.ckbLibSingleton.UseVisualStyleBackColor = true;
+            // 
             // FrmDbAccessTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 514);
+            this.Controls.Add(this.ckbLibSingleton);
             this.Controls.Add(this.ckbShowThreadStatus);
             this.Controls.Add(this.cmbTestLib);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.rtxtMessage);
-            this.Controls.Add(this.btnThreadInfo);
+            this.Controls.Add(this.btnClearMessage);
             this.Controls.Add(this.btnAnalysis);
             this.Controls.Add(this.btnTruncateTable);
             this.Controls.Add(this.btnRestartForm);
@@ -505,7 +517,7 @@
         private System.Windows.Forms.ToolTip ttMain;
         private System.Windows.Forms.ComboBox cmbTestLib;
         private System.Windows.Forms.Button btnTruncateTable;
-        private System.Windows.Forms.Button btnThreadInfo;
+        private System.Windows.Forms.Button btnClearMessage;
         private System.Windows.Forms.NumericUpDown nuThreadCountBack;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown nuThreadCountCreated;
@@ -513,6 +525,7 @@
         private System.Windows.Forms.CheckBox ckbShowThreadStatus;
         private System.Windows.Forms.Button btnRestartForm;
         private System.Windows.Forms.RadioButton rdbTask;
+        private System.Windows.Forms.CheckBox ckbLibSingleton;
     }
 }
 

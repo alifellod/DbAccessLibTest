@@ -9,7 +9,10 @@ namespace DbAccessLibTest.Test
 {
     public class MoonOrmTest : ITest
     {
-        public static void Init() { }
+        public void Init()
+        {
+            
+        }
         public bool Insert()
         {
             return DBFactory.Add(new MoonTestModel { Guid = Guid.NewGuid().ToString() }) != DBNull.Value;

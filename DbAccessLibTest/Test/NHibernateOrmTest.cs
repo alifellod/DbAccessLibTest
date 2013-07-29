@@ -11,6 +11,10 @@ namespace DbAccessLibTest.Test
 {
     public class NHibernateOrmTest : ITest
     {
+        public void Init()
+        {
+
+        }
         private static readonly ISessionFactory SessionFactory = CreateSessionFactory();
         static NHibernateOrmTest()
         {

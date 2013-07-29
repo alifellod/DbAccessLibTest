@@ -8,6 +8,10 @@ namespace DbAccessLibTest.Test
 {
     public class XCodeOrmTest : ITest
     {
+        public void Init()
+        {
+
+        }
         static XCodeOrmTest()
         {
             XCode.DataAccessLayer.DAL.ShowSQL = false;

@@ -24,9 +24,13 @@ FluentData也非常不错，强烈推荐试试，使用说明：http://www.iopenworks.com/Products
 
 单纯地比较各种ORM的并发CRUD其实并不能体现出性能上的本质差距，而且跟实际项目中遇到的复杂度相差甚远，不能说明问题。学习OMR的好办法之一就是看ORM的source code，可以了解其内部的工作原理，与SQL的生成过程，如何执行缓存，等等。
 
+另外一个建议：能把ado.net方式访问数据库也放进去就好了
+
 综合
 待加入组件
-dapper
-NPoco
-elinq
+Dapper
+PetaPoco/NPoco
+Elinq
 FluentData
+ado.net
+ALinq
